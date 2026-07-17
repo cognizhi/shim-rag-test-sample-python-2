@@ -10,7 +10,7 @@ from dataclasses import dataclass
 class ReportingConfig:
     """Where the upstream java-1 ingestion service lives."""
 
-    java1_url: str = os.environ.get("JAVA1_URL", "http://localhost:8081")
+    java1_url: str = os.environ.get("INGESTION_API_URL", "http://localhost:8081")
     requested_by: str = "reporting-app"
 
 
