@@ -1,0 +1,7 @@
+name: Local Helper
+description: A local composite action defined in this repository.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: echo "local helper"

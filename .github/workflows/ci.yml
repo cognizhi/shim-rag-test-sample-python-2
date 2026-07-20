@@ -1,0 +1,15 @@
+name: CI
+on: [push]
+jobs:
+  # Job-level `uses:` — a reusable-workflow call to repo B (WORKFLOW_USES).
+  call-reusable:
+    uses: cognizhi/shim-rag-test-sample-python-1/.github/workflows/reusable.yml@main
+    with:
+      environment: staging
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4                                             # marketplace, external, version_range
+      - uses: cognizhi/shim-rag-test-sample-python-1/.github/actions/setup@main  # cross-repo composite (ACTION_USES)
+      - uses: ./.github/actions/local                                         # local intra-repo action
+      - run: echo "build"
